@@ -1,7 +1,11 @@
 # Excel Translator
+Version 1.0
+2024-06-19
 
-This python app will load an excel file and translate all text cells to a given language using the [Azure AI Translator](https://azure.microsoft.com/en-us/products/ai-services/ai-translator) service.
-
+This python app will load an excel file and translate all text cells from English to a given language using the [Azure AI Translator](https://azure.microsoft.com/en-us/products/ai-services/ai-translator) service.
+  
+Header rows are not translated.
+  
 The target language can be chosen based on the list of supported languages returned by the endpoint.
 
 # Usage

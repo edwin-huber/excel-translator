@@ -106,8 +106,28 @@ def main():
 
     language = input('Please Choose a target language using a 2 letter code from the list above: ')
 
+    # choose a file from the local directory
+    # print the current directory
+    print('Current directory: ' + os.getcwd())
+    # list the files in the current directory
+    print('Files in current directory: ')
+    count = 0
+    # create a dictionary of files in the current directory
+    dict_files = {}
+    for file in os.listdir(os.getcwd()):
+        if file.endswith('.xlsx'):
+            dict_files[str(count)] = file
+            print(str(count) + " : " + file)
+            count += 1
+        
+    # choose a file
+    file_to_translate = input('Please choose a file number from the list above: ')
+    if not file_to_translate.isdigit():
+        # generate an exception
+        raise ValueError('Invalid file number')
     # Open the Excel file
-    workbook = openpyxl.load_workbook('C:\\repo\\excel-translate\\aicards.xlsx')
+    print('Translating ' + dict_files[file_to_translate])
+    workbook = openpyxl.load_workbook(dict_files[file_to_translate])
     # Create a new Excel file
     newworkbook = openpyxl.Workbook()
 
